@@ -194,6 +194,18 @@ function updateHeadSection(selectedValue) {
   const name = document.getElementById("t");
   const customName = localStorage.getItem("CustomName");
   const customIcon = localStorage.getItem("CustomIcon");
+// Preset cloaks
+if (selectedValue === "Linewize") {
+  const title = "Content Blocked by Linewize";
+  const iconPath = "/media/assets/static/favicon/line.ico";
+
+  name.textContent = title;
+  icon.setAttribute("href", iconPath);
+
+  localStorage.setItem("name", title);
+  localStorage.setItem("icon", iconPath);
+  return;
+}
 
   if (customName && customIcon) {
     name.textContent = customName;
