@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sites</title>
+  <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
+
+  <!-- SAME CSS / FONTS -->
+  <link rel="stylesheet" href="/assets/css/global.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/h.css?v=01" />
+  <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="center" style="background:#2a2a2a; color:white;">
+
+  <!-- 🔐 AUTH OVERLAY -->
+  <div id="authOverlay" style="
+    position: fixed;
+    inset: 0;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    color: white;
+    font-family: sans-serif;
+  ">
+    <div style="
+      background: #020617;
+      padding: 24px;
+      border-radius: 10px;
+      width: 280px;
+      text-align: center;
+    ">
+      <h2>Enter Password</h2>
+      <input type="password" id="authPw" placeholder="Password" style="
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 6px;
+        border: none;
+      ">
+      <button onclick="authLogin()" style="
+        width: 100%;
+        margin-top: 12px;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+      ">
+        Continue
+      </button>
+      <p id="authErr" style="color:#f87171;margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <div class="main" style="max-width:900px; padding:40px;">
+    <h1 class="title" style="margin-bottom:20px;">Game Sites</h1>
+
+    <ol style="line-height:1.8; font-size:16px;">
+      <li><a href="https://crazygames.com" target="_blank">crazygames.com</a></li>
+      <li><a href="https://poki.com" target="_blank">poki.com</a></li>
+      <li><a href="https://itch.io" target="_blank">itch.io</a></li>
+      <li><a href="https://coolmathgames.com" target="_blank">coolmathgames.com</a></li>
+      <li><a href="https://miniclip.com" target="_blank">miniclip.com</a></li>
+      <li><a href="https://armorgames.com" target="_blank">armorgames.com</a></li>
+      <li><a href="https://y8.com" target="_blank">y8.com</a></li>
+      <li><a href="https://kizi.com" target="_blank">kizi.com</a></li>
+      <li><a href="https://friv.com" target="_blank">friv.com</a></li>
+      <li><a href="https://kongregate.com" target="_blank">kongregate.com</a></li>
+
+      <li><a href="https://newgrounds.com" target="_blank">newgrounds.com</a></li>
+      <li><a href="https://lagged.com" target="_blank">lagged.com</a></li>
+      <li><a href="https://mathplayground.com" target="_blank">mathplayground.com</a></li>
+      <li><a href="https://hoodamath.com" target="_blank">hoodamath.com</a></li>
+      <li><a href="https://gamepix.com" target="_blank">gamepix.com</a></li>
+      <li><a href="https://silvergames.com" target="_blank">silvergames.com</a></li>
+      <li><a href="https://plays.org" target="_blank">plays.org</a></li>
+      <li><a href="https://bgames.com" target="_blank">bgames.com</a></li>
+      <li><a href="https://freegames.org" target="_blank">freegames.org</a></li>
+      <li><a href="https://a10.com" target="_blank">a10.com</a></li>
+
+      <li><a href="https://skribbl.io" target="_blank">skribbl.io</a></li>
+      <li><a href="https://gartic.io" target="_blank">gartic.io</a></li>
+      <li><a href="https://slither.io" target="_blank">slither.io</a></li>
+      <li><a href="https://agar.io" target="_blank">agar.io</a></li>
+      <li><a href="https://diep.io" target="_blank">diep.io</a></li>
+      <li><a href="https://paper-io.com" target="_blank">paper-io.com</a></li>
+      <li><a href="https://hole-io.com" target="_blank">hole-io.com</a></li>
+
+      <li><a href="https://chess.com" target="_blank">chess.com</a></li>
+      <li><a href="https://lichess.org" target="_blank">lichess.org</a></li>
+      <li><a href="https://roblox.com" target="_blank">roblox.com</a></li>
+      <li><a href="https://krunker.io" target="_blank">krunker.io</a></li>
+      <li><a href="https://shellshock.io" target="_blank">shellshock.io</a></li>
+      <li><a href="https://smashkarts.io" target="_blank">smashkarts.io</a></li>
+    </ol>
+  </div>
+
+  <!-- 🔐 AUTH SCRIPT -->
+  <script>
+    (function () {
+      const PASSWORD = "FLIPINGTREES!@#$%^&*9";
+      const overlay = document.getElementById("authOverlay");
+
+      if (localStorage.getItem("auth") === "true") {
+        overlay.remove();
+        return;
+      }
+
+      window.authLogin = function () {
+        const val = document.getElementById("authPw").value;
+        if (val === PASSWORD) {
+          localStorage.setItem("auth", "true");
+          overlay.remove();
+        } else {
+          document.getElementById("authErr").textContent = "Wrong password";
+        }
+      };
+    })();
+  </script>
+
+</body>
+</html>
