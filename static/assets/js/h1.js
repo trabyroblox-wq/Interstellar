@@ -174,7 +174,7 @@ const SplashT = [
   "Subscribe to my Youtube (@HubsyOfficial)",
   "Check out the settings page",
   "Running on the best servers! (Ultraviolet)",
-  "Hosted on Vercel.com, the best in the game!"),
+  "Hosted on Vercel.com, the best in the game!",
 ];
 
 let SplashI = Math.floor(Math.random() * SplashT.length);
