@@ -168,14 +168,13 @@ document.addEventListener("DOMContentLoaded", event => {
 const SplashT = [
   "Over 8 Million Users since 2023",
   "Fastest growing proxy server",
-  "Made by xBubbo",
-  "Check out discord.gg/interstellar :)",
+  "Made by sbstan and dalsse mainly",
+  "working on a discord server :)",
   "Thanks for using the site",
-  "Follow us on Tiktok (@useinterstellar)",
-  "Subscribe to us on YouTube (@unblocking)",
-  "Subscribe to my Youtube (@xbubbo)",
+  "Subscribe to my Youtube (@HubsyOfficial)",
   "Check out the settings page",
-  "Check out our Patreon (https://www.patreon.com/gointerstellar)",
+  "Running on the best servers! (Ultraviolet)",
+  "Hosted on Vercel.com, the best in the game!"),
 ];
 
 let SplashI = Math.floor(Math.random() * SplashT.length);
