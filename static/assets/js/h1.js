@@ -175,6 +175,8 @@ const SplashT = [
   "Check out the settings page",
   "Running on the best servers! (Ultraviolet)",
   "Hosted on Vercel.com, the best in the game!",
+  "We all miss mrmikey-boy.vercel.app :(",
+  "This site has a password to stop leaking but it still gets leaked :/",
 ];
 
 let SplashI = Math.floor(Math.random() * SplashT.length);
