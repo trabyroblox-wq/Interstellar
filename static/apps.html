@@ -21,6 +21,15 @@
 </head>
 
 <body>
+  <script>
+  (function () {
+    if (localStorage.getItem("auth") !== "true") {
+      // Not authenticated → kick them out
+      window.location.href = "/index.html"; 
+    }
+  })();
+</script>
+
   <div class="f-nav"></div>
   <div class="input-c">
     <input type="text" id="search" onkeyup="bar()" placeholder="Search" />
