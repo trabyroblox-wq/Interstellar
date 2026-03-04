@@ -88,7 +88,7 @@
       const PASSWORD = "mrkman123!@#";
       const overlay = document.getElementById("authOverlay");
 
-      if (localStorage.getItem("auth") === "true") {
+      if (localStorage.getItem("auth1") === "true") {
         overlay.remove();
         return;
       }
@@ -96,7 +96,7 @@
       window.authLogin = function () {
         const val = document.getElementById("authPw").value;
         if (val === PASSWORD) {
-          localStorage.setItem("auth", "true");
+          localStorage.setItem("auth1", "true");
           overlay.remove();
         } else {
           document.getElementById("authErr").textContent = "Wrong password";
