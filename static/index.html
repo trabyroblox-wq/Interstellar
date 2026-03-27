@@ -2,92 +2,149 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HUBSY V5</title>
-<link rel="shortcut icon" href="favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
+  <title id="t">Home</title>
+
+  <link rel="stylesheet" href="/assets/css/global.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/h.css?v=01" />
+  <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<body class="center" onload="SplashT">
+
+  <!-- 🔐 AUTH OVERLAY -->
+  <div id="authOverlay" style="
+    position: fixed;
+    inset: 0;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    color: white;
+    font-family: sans-serif;
+  ">
+    <div style="
+      background: #020617;
+      padding: 24px;
+      border-radius: 10px;
+      width: 280px;
+      text-align: center;
+    ">
+      <h2>Enter Password</h2>
+      <input type="password" id="authPw" placeholder="Password" style="
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 6px;
+        border: none;
+      ">
+      <button onclick="authLogin()" style="
+        width: 100%;
+        margin-top: 12px;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+      ">
+        Continue
+      </button>
+      <p id="authErr" style="color:#f87171;margin-top:10px;"></p>
+    </div>
+  </div>
+
+  <div class="f-nav"></div>
+
+  <div id="particles-js">
+    <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/"></script>
+
+    <div class="main">
+      <h1 class="title">HUBSY V5</h1>
+      <p id="splash"></p>
+
+      <div class="search-container">
+        <form id="fv" method="POST">
+          <input id="input" class="truncate" placeholder="Search or enter a URL" type="text" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/index-3.js"></script>
+  <script src="/assets/js/h1.js"></script>
+  <script src="./assets/mathematics/bundle.js?v=2025-04-15"></script>
+  <script src="./assets/mathematics/config.js?v=2025-04-15"></script>
+  <script src="/assets/js/m1.js"></script>
+
+  <!-- 🔐 AUTH SCRIPT -->
+  <script>
+    (function () {
+      const PASSWORD = "mrkman123!@#";
+      const overlay = document.getElementById("authOverlay");
+
+      if (localStorage.getItem("auth1") === "true") {
+        overlay.remove();
+        return;
+      }
+
+      window.authLogin = function () {
+        const val = document.getElementById("authPw").value;
+        if (val === PASSWORD) {
+          localStorage.setItem("auth1", "true");
+          overlay.remove();
+        } else {
+          document.getElementById("authErr").textContent = "Wrong password";
+        }
+      };
+    })();
+  </script>
+
+  <!-- DO NOT REMOVE-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-WKJQ5QHQTJ");
+  </script>
+  <!-- DO NOT REMOVE-->
+<!-- 🎥 Bottom-left YouTube video -->
+<div id="yt-box">
+  <iframe
+    src="https://www.youtube.com/embed/8EAQi-ufmKI?rel=0&modestbranding=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
+  #yt-box {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    width: 320px;
+    height: 180px;
+    z-index: 9999;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    background: black;
+  }
 
-body{
-background:#020617;
-color:white;
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
-
-.container{
-background:#020617;
-padding:40px;
-border-radius:12px;
-box-shadow:0 15px 40px rgba(0,0,0,0.7);
-max-width:420px;
-}
-
-h1{
-font-size:32px;
-margin-bottom:10px;
-}
-
-p{
-color:#94a3b8;
-margin-bottom:20px;
-line-height:1.5;
-}
-
-.status{
-background:#0f172a;
-padding:12px;
-border-radius:8px;
-font-size:14px;
-color:#64748b;
-}
-
-.loader{
-margin:20px auto;
-width:40px;
-height:40px;
-border:4px solid #1e293b;
-border-top:4px solid #2563eb;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-0%{transform:rotate(0deg);}
-100%{transform:rotate(360deg);}
-}
+  #yt-box iframe {
+    width: 100%;
+    height: 100%;
+  }
 </style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>🚧 HUBSY V5</h1>
-
-<p>
-This site is currently being updated and is temporarily unavailable.
-Please check back later to see if any up dates have been made, thank you.
-</p>
-
-<div class="loader"></div>
-
-<div class="status">
-Status: Removing the Pop Up Ads
-</div>
-
-</div>
-
+<img id="custom-cursor" src="/static/cures.png" />
 </body>
 </html>
